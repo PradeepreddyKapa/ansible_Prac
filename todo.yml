@@ -18,7 +18,7 @@
     - name: Download COMPONENT from Nexus
       get_url:
         url: http://172.31.12.138:8081/repository/frontend/frontend.zip
-        dest: /root/frontend.zip
+        dest: /root/
         username: admin
         password: admin
 
