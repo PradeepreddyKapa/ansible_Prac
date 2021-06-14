@@ -1,10 +1,10 @@
--name: Setup TODO APP
- hosts: all
- become_user: yes 
+- name: Setup TODO APP
+  hosts: all
+  become_user: yes 
 
- tasks: 
-    -name: Apt Update
-     apt:
-       name: nginx
-       state: present
-       update_cache: yes
+  tasks: 
+    - name: Apt Update
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
