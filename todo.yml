@@ -18,12 +18,12 @@
     - name: Download COMPONENT from Nexus
       get_url:
         url: http://172.31.12.138:8081/repository/frontend/frontend.zip
-        dest: /root/
+        dest: /var/www/html/frontend.zip
         username: admin
         password: admin
 
     - name: Unzip the Downloaded Content
       unarchive:
-        src: /root/frontend.zip
-        dest: /root/
+        src: /var/www/html/frontend.zip
+        dest: /var/www/html/frontend/
         remote_src: yes
