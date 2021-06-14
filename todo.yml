@@ -10,10 +10,10 @@
         update_cache: yes
 
 - name: Start Nginx
-    systemd:
-      state: started
-      name: nginx
-      enabled: yes
+  systemd:
+    state: started
+    name: nginx
+    enabled: yes
 
 - name: Download the component 
     get_url: 
