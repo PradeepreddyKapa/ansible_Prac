@@ -10,13 +10,13 @@
         update_cache: yes
 
     - name: Start Nginx
-       systemd:
+      systemd:
         state: started
         name: nginx
         enabled: yes
 
     - name: Download the component 
-       get_url: 
+      get_url: 
         url: http://172.31.12.138:8081/repository/frontend/
         dest: var/www/html
         username: admin
