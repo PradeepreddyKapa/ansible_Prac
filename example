@@ -1,0 +1,6 @@
+-name: Practice
+ hosts: all
+ tasks: 
+    -name: print Hello 
+     debug:
+       msg: Hello 
