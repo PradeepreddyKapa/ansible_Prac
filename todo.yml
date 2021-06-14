@@ -3,7 +3,7 @@
   become_user: yes 
 
   tasks: 
-    - name: Apt Update
+    - name: Install Nginx
       apt:
         name: nginx
         state: present
