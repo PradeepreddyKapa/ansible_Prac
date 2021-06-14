@@ -1,0 +1,8 @@
+-name: Setup TODO APP
+ hosts: all
+ tasks: 
+    -name: Apt Update
+     apt:
+       name: nginx
+       state: present
+       update_cache: yes
