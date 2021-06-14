@@ -25,5 +25,5 @@
     - name: Unzip the Downloaded Content
       unarchive:
         src: /var/www/html/frontend.zip
-        dest: /var/www/html/frontend/
+        dest: /var/www/html/frontend-main
         remote_src: yes
