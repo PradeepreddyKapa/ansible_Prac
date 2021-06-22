@@ -39,8 +39,8 @@
 
     - name: Copy config file
       ansible.bulintin.copy:
-         src: frontend.conf
-         dest: /etc/nginx/sites-enabled/frontend.conf
+        src: frontend.conf
+        dest: /etc/nginx/sites-enabled/frontend.conf
 
     - name: Start Nginx
       systemd:
