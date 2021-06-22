@@ -1,48 +1,23 @@
-- name: Setup TODO APP
+- name: Setup todo Project
   hosts: all
-  become_user: yes 
+  become: yes
+  roles:
+    - role: frontend
+      tags: frontend
+      when: COMPONENT == "frontend"
 
-  tasks: 
-    - name: Install Nginx
-      apt:
-        name: nginx
-        state: present
-        update_cache: yes
+    - role: login
+        tags: login
+        when: COMPONENT == "login"
 
-    - name: Start Nginx
-      systemd:
-        state: started
-        name: nginx
-        enabled: yes
+    - role: users
+        tags: users
+        when: COMPONENT == "users"
 
-    - name: Download COMPONENT from Nexus
-      get_url:
-        url: http://172.31.12.138:8081/repository/frontend/frontend-main.zip
-        dest: /var/www/html/frontend.zip
-        username: admin
-        password: admin
+    - role: todo
+        tags: todo
+        when: COMPONENT == "todo"
 
-    - name: Unzip the Downloaded Content
-      unarchive:
-        src: /var/www/html/frontend.zip
-        dest: /var/www/html
-        remote_src: yes
-
-    - name: Remove default files
-      file:
-        path: "{{ item }}"
-        state: absent
-      loop:
-        - /etc/nginx/sites-enabled/default
-        - /etc/nginx/sites-available/default
-
-    - name: Copy config file
-      template:
-        src: frontend.conf
-        dest: /etc/nginx/sites-enabled/frontend.conf
-
-    - name: Start Nginx
-      systemd:
-        state: started
-        name: nginx
-        enabled: yes
+    - role: redis
+        tags: redis
+        when: COMPONENT == "redis"
