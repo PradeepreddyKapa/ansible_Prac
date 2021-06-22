@@ -27,3 +27,22 @@
         src: /var/www/html/frontend.zip
         dest: /var/www/html
         remote_src: yes
+
+    - name: Remove default files
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - /etc/nginx/sites-enabled/default
+        - /etc/nginx/sites-available/default
+
+    - name: Copy config file
+      template:
+        src: frontend.conf
+        dest: /etc/nginx/sites-enabled/frontend.conf
+
+    - name: Start Nginx
+      systemd:
+        state: started
+        name: nginx
+        enabled: yes
