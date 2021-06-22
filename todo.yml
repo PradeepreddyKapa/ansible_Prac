@@ -38,7 +38,7 @@
         - cd /var/www/html
 
     - name: Copy config file
-      ansible.bulintin.copy:
+      ansible.builtin.copy:
         src: frontend.conf
         dest: /etc/nginx/sites-enabled/frontend.conf
 
