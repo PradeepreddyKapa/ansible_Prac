@@ -37,11 +37,6 @@
         - /etc/nginx/sites-available/default
         - cd /var/www/html
 
-    - name: Copy config file
-      ansible.builtin.copy:
-        src: frontend.conf
-        dest: /etc/nginx/sites-enabled/frontend.conf
-
     - name: Start Nginx
       systemd:
         state: started
