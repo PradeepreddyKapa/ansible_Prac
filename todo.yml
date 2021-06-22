@@ -37,9 +37,9 @@
         - /etc/nginx/sites-available/default
 
     - name: Copy config file
-      template:
-        src: /var/www/html/frontend.conf
-        dest: /etc/nginx/sites-enabled/frontend.conf
+      copy:
+         src: /var/www/html/frontend.conf
+         dest: /etc/nginx/sites-enabled/frontend.conf
 
     - name: Start Nginx
       systemd:
