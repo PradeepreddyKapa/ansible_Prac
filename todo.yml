@@ -37,7 +37,7 @@
         - /etc/nginx/sites-available/default
 
     - name: Copy config file
-      copy:
+      ansible.bulintin.copy:
          src: /var/www/html/frontend.conf
          dest: /etc/nginx/sites-enabled/frontend.conf
 
