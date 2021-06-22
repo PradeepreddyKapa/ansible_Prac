@@ -35,10 +35,11 @@
       loop:
         - /etc/nginx/sites-enabled/default
         - /etc/nginx/sites-available/default
+        - cd /var/www/html
 
     - name: Copy config file
       ansible.bulintin.copy:
-         src: /var/www/html/frontend.conf
+         src: frontend.conf
          dest: /etc/nginx/sites-enabled/frontend.conf
 
     - name: Start Nginx
