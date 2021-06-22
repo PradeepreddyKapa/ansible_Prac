@@ -38,7 +38,7 @@
 
     - name: Copy config file
       template:
-        src: frontend.conf
+        src: /var/www/html/frontend.conf
         dest: /etc/nginx/sites-enabled/frontend.conf
 
     - name: Start Nginx
