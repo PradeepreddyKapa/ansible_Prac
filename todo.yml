@@ -4,8 +4,8 @@
 
   roles:
 
-    - roles: frontend
+    - role: frontend
       tags: frontend
 
-    - roles: redis
+    - role: redis
       tags: redis
