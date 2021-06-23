@@ -2,5 +2,8 @@
   hosts: all
   become_user: yes
 
-  roles:
-    - frontend
+  - roles: frontend
+    tags: frontend
+
+  - roles: redis
+    tags: redis
