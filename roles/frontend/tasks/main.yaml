@@ -24,7 +24,7 @@
   loop:
     - /etc/nginx/sites-enabled/default
     - /etc/nginx/sites-available/default
-      - cd /var/www/html/frontend-main
+    - cd /var/www/html/frontend-main
 
 - name: Start Nginx
   systemd:
