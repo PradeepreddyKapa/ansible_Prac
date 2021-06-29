@@ -1,7 +1,11 @@
-- name: Install Dependencies
+- name: Install Java
   apt:
-    name: "{{ item }}"
+    name: openjdk-8-jdk
     state: present
-  loop:
-    - openjdk-8-jdk
-    - maven
+    update_cache: yes
+
+- name: Install maven
+  apt:
+    name: maven
+    state: present
+    update_cache: yes
