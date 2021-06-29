@@ -1,4 +1,8 @@
-
+- name: install npm
+  apt:
+    name: npm
+    update_cache: yes
+    state: present
 
 - name: Download COMPONENT from Nexus
   get_url:
