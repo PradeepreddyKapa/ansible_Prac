@@ -1,0 +1,7 @@
+- name: Install Dependencies
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - openjdk-8-jdk
+    - maven
