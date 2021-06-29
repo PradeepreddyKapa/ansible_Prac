@@ -12,14 +12,14 @@
 #      tags: redis
 #      when: COMPONENT == "redis"
 
-    - role: users
-      tags: users
-      when: COMPONENT == "users"
+    # - role: users
+    #   tags: users
+    #   when: COMPONENT == "users"
 
-    - role: login
-      tags: login
-      when: COMPONENT == "login"
+    # - role: login
+    #   tags: login
+    #   when: COMPONENT == "login"
 
-    - role: todo
-      tags: todo
-      when: COMPONENT == "todo"
+    # - role: todo
+    #   tags: todo
+    #   when: COMPONENT == "todo"
