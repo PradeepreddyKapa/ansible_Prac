@@ -25,7 +25,7 @@
 
 - name: Copy Systemd
   copy:
-    src: "users.service"
+    src: users.service
     dest: /etc/systemd/system/users.service
 
 - name: Update systemd file
@@ -36,7 +36,7 @@
 
 - name: Start Users Service
   systemd:
-    name: "users"
+    name: users
     demon_reload: yes
     state: started
     enabled: yes
