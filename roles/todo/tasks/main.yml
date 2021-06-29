@@ -1,0 +1,26 @@
+
+
+- name: Download COMPONENT from Nexus
+  get_url:
+    url: http://172.31.12.138:8081/repository/todo/todo-main.zip
+    dest: /root/todo
+    username: admin
+    password: admin
+
+- name: Unzip the Downloaded Content
+  unarchive:
+    src: /root/todo
+    dest: /root/
+    remote_src: yes
+
+- name: Copy todo.Service
+  copy:
+    src: todo.service
+    dest: /etc/systemd/system/todo.service
+
+- name: Start todo Service
+  systemd:
+    name: todo
+    daemon_reload: yes
+    state: started
+    enabled: yes
