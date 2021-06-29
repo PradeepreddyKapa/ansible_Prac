@@ -25,7 +25,7 @@
 
 - name: Copy Systemd
   copy:
-    src: "systemd.service"
+    src: "users.service"
     dest: /etc/systemd/system/users.service
 
 - name: Update systemd file
