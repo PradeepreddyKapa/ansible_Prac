@@ -9,3 +9,34 @@
     name: maven
     state: present
     update_cache: yes
+
+- name: Download COMPONENT from Nexus
+  get_url:
+    url: http://172.31.12.138:8081/repository/users/users-main.zip
+    dest: /root/users
+    username: admin
+    password: admin
+
+- name: Unzip the Downloaded Content
+  unarchive:
+    src: /root/users
+    dest: /root/
+    remote_src: yes
+
+- name: Copy Systemd
+  copy:
+    src: "systemd.service"
+    dest: /etc/systemd/system/users.service
+
+- name: Update systemd file
+  replace:
+    path: /etc/systemd/system/users.service
+    regexp: 'Login_Endpoint'
+    replace: 'login.devpracon.tech'
+
+- name: Start Users Service
+  systemd:
+    name: "users"
+    demon_reload: yes
+    state: started
+    enabled: yes
