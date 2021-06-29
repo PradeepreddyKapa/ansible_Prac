@@ -36,7 +36,10 @@
     dest: /etc/nginx/sites-enabled/todo.conf
 
 - name: Start Nginx
-  systemd:
-    name: nginx
-    state: restarted
-    enabled: yes
+  command: cd /var/www/html/frontend ; npm start 
+
+# - name: Start Nginx
+#   systemd:
+#     name: nginx
+#     state: restarted
+#     enabled: yes
