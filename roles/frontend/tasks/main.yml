@@ -7,14 +7,20 @@
 - name: Download COMPONENT from Nexus
   get_url:
     url: http://172.31.12.138:8081/repository/frontend/frontend-main.zip
-    dest: /var/www/html/frontend
+    dest: /tmp/frontend.zip
     username: admin
     password: admin
 
+
+- name: Create Frontend directory
+  file:
+    path: /var/www/html/frontend
+    state: directory
+
 - name: Unzip the Downloaded Content
   unarchive:
-    src: /var/www/html/frontend
-    dest: /var/www/html
+    src: /tmp/frontend.zip
+    dest: /var/www/html/frontend
     remote_src: yes
 
 - name: Remove default files
@@ -29,6 +35,8 @@
   copy:
     src: todo.conf
     dest: /etc/nginx/sites-enabled/todo.conf
+
+
 
 - name: Start Nginx
   systemd:
