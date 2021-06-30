@@ -37,6 +37,6 @@
 - name: Start Users Service
   systemd:
     name: users
-    demon_reload: yes
+    daemon_reload: yes
     state: started
     enabled: yes
