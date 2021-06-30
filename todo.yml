@@ -8,7 +8,7 @@
       tags: frontend
       when: COMPONENT == "frontend"
 
-   - role: redis
+    - role: redis
      tags: redis
      when: COMPONENT == "redis"
 
