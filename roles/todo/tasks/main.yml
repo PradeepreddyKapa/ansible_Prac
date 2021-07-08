@@ -1,15 +1,12 @@
 - name: install npm
-  apt:
-    name: npm
-    update_cache: yes
-    state: present
+  include_role:
+    name: common
+    tasks_from: nodejs
 
-- name: Download COMPONENT from Nexus
-  get_url:
-    url: http://172.31.12.138:8081/repository/todo/todo-main.zip
-    dest: /root/todo
-    username: admin
-    password: admin
+- name: Download artifacts
+  include_role:
+    name: common
+    tasks_from: download-nexus-artifacts.yml
 
 - name: Unzip the Downloaded Content
   unarchive:
@@ -18,7 +15,7 @@
     remote_src: yes
 
 - name: Copy todo.Service
-  copy:
+  templete:
     src: todo.service
     dest: /etc/systemd/system/todo.service
 

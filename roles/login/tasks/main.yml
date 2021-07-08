@@ -1,15 +1,12 @@
-- name: Install Go
-  apt:
-    name: golang
-    update_cache: yes
-    state: present
+- name: golang common role
+  include_role:
+    name: common
+    tasks_from: golang 
 
-- name: Download COMPONENT from Nexus
-  get_url:
-    url: http://172.31.12.138:8081/repository/login/login-main.zip
-    dest: /root/login
-    username: admin
-    password: admin
+- name: Download artifacts
+  include_role:
+    name: common
+    tasks_from: download-nexus-artifacts.yml
 
 - name: Unzip the Downloaded Content
   unarchive:
@@ -18,7 +15,7 @@
     remote_src: yes
 
 - name: Copy login.Service
-  copy:
+  template:
     src: login.service
     dest: /etc/systemd/system/login.service
 

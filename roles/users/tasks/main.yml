@@ -1,21 +1,12 @@
 - name: Install Java
-  apt:
-    name: openjdk-8-jdk
-    state: present
-    update_cache: yes
+  include_role:
+    name: common
+    tasks_from: java
 
-- name: Install maven
-  apt:
-    name: maven
-    state: present
-    update_cache: yes
-
-- name: Download COMPONENT from Nexus
-  get_url:
-    url: http://172.31.12.138:8081/repository/users/users-main.zip
-    dest: /root/users
-    username: admin
-    password: admin
+- name: Download artifacts
+  include_role:
+    name: common
+    tasks_from: download-nexus-artifacts.yml
 
 - name: Unzip the Downloaded Content
   unarchive:
@@ -24,7 +15,7 @@
     remote_src: yes
 
 - name: Copy Systemd
-  copy:
+  template:
     src: users.service
     dest: /etc/systemd/system/users.service
 
