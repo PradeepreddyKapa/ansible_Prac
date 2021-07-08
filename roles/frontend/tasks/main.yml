@@ -4,12 +4,10 @@
     state: present
     update_cache: yes
 
-- name: Download COMPONENT from Nexus
-  get_url:
-    url: http://172.31.12.138:8081/repository/frontend/frontend-main.zip
-    dest: /tmp/frontend.zip
-    username: admin
-    password: admin
+- name: Download COMPONENT 
+  include_role:
+    name: common
+    tasks_from: download-nexus-artifacts
 
 - name: Remove default files
   file:
@@ -32,7 +30,7 @@
     remote_src: yes
 
 - name: Update Todoshop Config file
-  copy:
+  template:
     src: todo.conf
     dest: /etc/nginx/sites-enabled/todo.conf
 
