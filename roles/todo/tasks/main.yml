@@ -6,7 +6,7 @@
 - name: Download artifacts
   include_role:
     name: common
-    tasks_from: download-nexus-artifacts.yml
+    tasks_from: download-nexus-artifacts
 
 - name: Unzip the Downloaded Content
   unarchive:
