@@ -8,12 +8,6 @@
     name: common
     tasks_from: download-nexus-artifacts
 
-- name: Unzip the Downloaded Content
-  unarchive:
-    src: /root/todo
-    dest: /root/
-    remote_src: yes
-
 - name: Copy todo.Service
   template:
     src: todo.service
