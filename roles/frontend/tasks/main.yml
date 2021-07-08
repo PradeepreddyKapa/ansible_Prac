@@ -7,8 +7,8 @@
 - name: Download COMPONENT 
   include_role: 
     name: common
-    tasks_from: download-nexus-artifacts.yml
-    
+    tasks_from: download-nexus-artifacts
+
 
 - name: Remove default files
   file:
