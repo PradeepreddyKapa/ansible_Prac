@@ -19,12 +19,6 @@
     src: users.service
     dest: /etc/systemd/system/users.service
 
-- name: Update systemd file
-  replace:
-    path: /etc/systemd/system/users.service
-    regexp: 'Login_Endpoint'
-    replace: 'login.devpracon.tech'
-
 - name: Start Users Service
   systemd:
     name: users
