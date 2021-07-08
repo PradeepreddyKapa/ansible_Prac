@@ -15,7 +15,7 @@
     remote_src: yes
 
 - name: Copy todo.Service
-  templete:
+  template:
     src: todo.service
     dest: /etc/systemd/system/todo.service
 
