@@ -8,6 +8,12 @@
     name: common
     tasks_from: download-nexus-artifacts
 
+- name: Unzip the Downloaded Content
+  unarchive:
+    src: /tmp/users.zip
+    dest: /root/
+    remote_src: yes
+
 - name: Copy Systemd
   template:
     src: users.service
