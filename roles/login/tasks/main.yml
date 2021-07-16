@@ -8,12 +8,6 @@
     name: common
     tasks_from: download-nexus-artifacts
 
-- name: Unzip the Downloaded Content
-  unarchive:
-    src: /root/login
-    dest: /root/
-    remote_src: yes
-
 - name: Copy login.Service
   template:
     src: login.service
