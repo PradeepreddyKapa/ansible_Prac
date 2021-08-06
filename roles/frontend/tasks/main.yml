@@ -46,3 +46,9 @@
   include_role:
     name: common
     tasks_from: node_exporter
+
+
+- name: Install Filebeat from common role
+  include_role:
+    name: common
+    tasks_from: filebeat
