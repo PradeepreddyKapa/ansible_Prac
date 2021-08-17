@@ -7,7 +7,8 @@
     dest: /etc/rsyslog.d/todo.conf
 
 
-- name: Restart  rsyslog
+- name: Restart rsyslog conf
   systemd:
     name: rsyslog
-    status: restarted
+    state: restarted
+    enabled: yes
